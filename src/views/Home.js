@@ -24,27 +24,27 @@ const Home = () => {
     setPages(event.target.innerText);
   }
 
-  //   useEffect(() => {
-  //     async function getPics() {
-  //       setLoading(true);
-  //       try {
-  //         const data = await fetch(
-  //           `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=q0VpcXjek9JORFTDsow8mEDjPjh8tQykHroIHb6c-l8`
-  //         );
-  //         const urls = await data.json();
-  //         console.log(urls.results);
-  //         setItems(urls.results);
-  //         setLoading(false);
-  //         setTotalPages(urls.total_pages);
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     }
-  //     // setTimeout(() => {
-  //     getPics();
-  //     // }, 3000);
-  //     // return () => clearTimeout();
-  //   }, [search, pages, orientation, color]);
+  useEffect(() => {
+    async function getPics() {
+      setLoading(true);
+      try {
+        const data = await fetch(
+          `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=q0VpcXjek9JORFTDsow8mEDjPjh8tQykHroIHb6c-l8`
+        );
+        const urls = await data.json();
+        console.log(urls.results);
+        setItems(urls.results);
+        setLoading(false);
+        setTotalPages(urls.total_pages);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    // setTimeout(() => {
+    getPics();
+    // }, 3000);
+    // return () => clearTimeout();
+  }, [search, pages, orientation, color]);
   console.log(items);
   console.log(search);
   console.log(totalPages);
