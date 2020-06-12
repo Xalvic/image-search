@@ -31,7 +31,7 @@ const Home = () => {
       setColor("");
       try {
         const data = await fetch(
-          `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=9uYM1aJn8GtEssmu7DpzHFEZpLO_ERgX1DwsNYX9pSw`
+          `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=40K_1kRnAwEv0CYjgrg7Vh9-lRIryNazewlPH7LMxck`
         );
         const urls = await data.json();
         console.log(urls.results);
