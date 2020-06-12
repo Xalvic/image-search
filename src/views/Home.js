@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Images from "../components/images";
 // import Pagination from "../components/Pagination";
 
-//pexels = 563492ad6f91700001000001168dabfa7f044c308c99253ed1cc1ec9
-
 const Home = () => {
   const [search, setSearch] = useState("Nature");
   const [totalPages, setTotalPages] = useState("");

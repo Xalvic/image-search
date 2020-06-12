@@ -8,7 +8,7 @@ const Images = ({ items, loading }) => {
       </div>
     );
   }
-  if (items !== null) {
+  if (items != null) {
     return (
       <div className='images'>
         {items.map((item) => (
