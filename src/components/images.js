@@ -2,9 +2,13 @@ import React from "react";
 
 const Images = ({ items, loading }) => {
   if (loading) {
-    return <h1>Loading ...</h1>;
+    return (
+      <div className='loader'>
+        <i className='fa fa-spinner' aria-hidden='true'></i>
+      </div>
+    );
   }
-  if (items !== "") {
+  if (items !== null) {
     return (
       <div className='images'>
         {items.map((item) => (
@@ -14,8 +18,8 @@ const Images = ({ items, loading }) => {
     );
   } else {
     return (
-      <div className='Loader'>
-        <p>Please Wait</p>
+      <div className='loader'>
+        <p>No Results</p>
       </div>
     );
   }

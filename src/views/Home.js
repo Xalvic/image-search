@@ -5,18 +5,18 @@ import Images from "../components/images";
 //pexels = 563492ad6f91700001000001168dabfa7f044c308c99253ed1cc1ec9
 
 const Home = () => {
-  const [search, setSearch] = useState("nature");
+  const [search, setSearch] = useState("Nature");
   const [totalPages, setTotalPages] = useState("");
   const [pages, setPages] = useState(0);
   const [incre, setIncre] = useState(10);
   const [decre, setDecre] = useState(0);
   const [orientation, setOrientation] = useState("");
   const [color, setColor] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
   const [orishow, setOrishow] = useState(false);
   const [colorshow, setColorshow] = useState(false);
-  //   const qqq = "dogs";
+
   function handle(event) {
     setSearch(event.target.value);
   }
@@ -29,7 +29,7 @@ const Home = () => {
       setLoading(true);
       try {
         const data = await fetch(
-          `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=q0VpcXjek9JORFTDsow8mEDjPjh8tQykHroIHb6c-l8`
+          `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=9uYM1aJn8GtEssmu7DpzHFEZpLO_ERgX1DwsNYX9pSw`
         );
         const urls = await data.json();
         console.log(urls.results);
@@ -39,14 +39,16 @@ const Home = () => {
       } catch (error) {
         console.log(error);
       }
+      //   setOrientation("");
+      //   setColor("");
     }
     // setTimeout(() => {
     getPics();
     // }, 3000);
     // return () => clearTimeout();
   }, [search, pages, orientation, color]);
-  console.log(items);
-  console.log(search);
+  //   console.log(items);
+  //   console.log(search);
   console.log(totalPages);
 
   const ori = () => {
@@ -56,8 +58,7 @@ const Home = () => {
     setColorshow(!colorshow);
   };
 
-  const pagin = [...new Array(totalPages).keys()];
-  const sliced = pagin.slice(decre, incre);
+  const sliced = [...new Array(totalPages).keys()].slice(decre, incre);
   return (
     <div className='Home'>
       <div className='main-field'>
@@ -105,7 +106,7 @@ const Home = () => {
                 className='colors'
                 onClick={() => setColor("&color=black_and_white")}
               >
-                black & white
+                Black & White
               </li>
               <li
                 className='colors'
@@ -158,25 +159,32 @@ const Home = () => {
           <p onClick={handlePage}>{pageNumber + 1}</p>
         ))}
       </div>
-
-      <div>
-        <button
-          onClick={() => {
-            setIncre(incre + 10);
-            setDecre(decre + 10);
-          }}
-        >
-          Plus
-        </button>
-        <button
-          onClick={() => {
-            setIncre(incre - 10);
-            setDecre(decre - 10);
-          }}
-        >
-          Minus
-        </button>
-      </div>
+      {totalPages > 10 && (
+        <div className='page-buttons'>
+          <button
+            onClick={() => {
+              if (decre !== 0 && incre !== 10) {
+                setIncre(incre - 10);
+                setDecre(decre - 10);
+                setPages(pages - 10);
+              }
+            }}
+          >
+            Prev Section
+          </button>
+          <button
+            onClick={() => {
+              if (incre < totalPages) {
+                setIncre(incre + 10);
+                setDecre(decre + 10);
+                setPages(pages + 11);
+              }
+            }}
+          >
+            Next Section
+          </button>
+        </div>
+      )}
     </div>
   );
 };
