@@ -27,6 +27,8 @@ const Home = () => {
   useEffect(() => {
     async function getPics() {
       setLoading(true);
+      setOrientation("");
+      setColor("");
       try {
         const data = await fetch(
           `https://api.unsplash.com/search/photos?page=${pages}&query=${search}${orientation}${color}&client_id=9uYM1aJn8GtEssmu7DpzHFEZpLO_ERgX1DwsNYX9pSw`
@@ -77,6 +79,9 @@ const Home = () => {
               <p>Select Orientation </p> <i className='fa fa-sort-down'></i>
             </div>
             <ul className={orishow ? "list" : "none"}>
+              <li className='orientation' onClick={() => setOrientation(" ")}>
+                <i className='fa fa-border-all'></i> <p>Any</p>
+              </li>
               <li
                 className='orientation'
                 onClick={() => setOrientation("&orientation=landscape")}
@@ -102,11 +107,14 @@ const Home = () => {
               <p>Select Colors </p> <i className='fa fa-sort-down'></i>
             </div>
             <ul className={colorshow ? "list" : "none"}>
+              <li className='colors' onClick={() => setColor(" ")}>
+                Any
+              </li>
               <li
                 className='colors'
                 onClick={() => setColor("&color=black_and_white")}
               >
-                Black & White
+                Mono
               </li>
               <li
                 className='colors'

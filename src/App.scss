@@ -84,48 +84,48 @@
         }
       }
       .colors {
-        &:nth-child(n + 2) {
+        &:nth-child(n + 3) {
           width: 40px;
           height: 25px;
           margin: 10px;
           border-radius: 5px;
           border: 2px solid rgb(223, 223, 223);
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
           background-color: #000000;
         }
-        &:nth-child(3) {
-          background-color: #ffffff;
-        }
         &:nth-child(4) {
-          color: #ffffff;
-          background-color: yellow;
+          background-color: #ffffff;
         }
         &:nth-child(5) {
           color: #ffffff;
-          background-color: orange;
+          background-color: yellow;
         }
         &:nth-child(6) {
           color: #ffffff;
-          background-color: red;
+          background-color: orange;
         }
         &:nth-child(7) {
           color: #ffffff;
-          background-color: purple;
+          background-color: red;
         }
         &:nth-child(8) {
           color: #ffffff;
-          background-color: magenta;
+          background-color: purple;
         }
         &:nth-child(9) {
           color: #ffffff;
-          background-color: green;
+          background-color: magenta;
         }
         &:nth-child(10) {
           color: #ffffff;
-          background-color: teal;
+          background-color: green;
         }
         &:nth-child(11) {
+          color: #ffffff;
+          background-color: teal;
+        }
+        &:nth-child(12) {
           color: #ffffff;
           background-color: blue;
         }
